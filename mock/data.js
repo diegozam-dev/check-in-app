@@ -3,17 +3,17 @@
 export const roles = [
   {
     id: 1,
-    name: 'system_admin',
+    name: 'Administrador',
     description: 'Administrador con acceso total al sistema.'
   },
   {
     id: 2,
-    name: 'teacher',
+    name: 'Docente',
     description: 'Profesor que puede gestionar cursos y tomar asistencia.'
   },
   {
     id: 3,
-    name: 'student',
+    name: 'Estudiante',
     description: 'Estudiante que puede ver sus cursos y asistencias.'
   }
 ];
@@ -23,38 +23,42 @@ export const roles = [
 export const users = [
   {
     id: 1,
+    rol: 1,
     firstname: 'Ana',
     lastname: 'Admin',
     username: 'admin',
     email: 'ana.admin@example.com',
-    password: 'hashed_password_1',
+    password: 'admin123',
     state: 'active'
   },
   {
     id: 2,
+    rol: 2,
     firstname: 'Pedro',
     lastname: 'Profesor',
     username: 'pprofesor',
     email: 'pedro.profesor@example.com',
-    password: 'hashed_password_2',
+    password: 'profesor123',
     state: 'active'
   },
   {
     id: 3,
+    rol: 3,
     firstname: 'Laura',
     lastname: 'Estudiante',
     username: 'lestudiante',
     email: 'laura.estudiante@example.com',
-    password: 'hashed_password_3',
+    password: 'estudiante123',
     state: 'active'
   },
   {
     id: 4,
+    rol: 3,
     firstname: 'Carlos',
     lastname: 'Alumno',
     username: 'calumno',
     email: 'carlos.alumno@example.com',
-    password: 'hashed_password_4',
+    password: 'estudiante456',
     state: 'active'
   }
 ];
@@ -114,60 +118,6 @@ export const enrollments = [
   // Matrículas en Historia Universal (Curso 102)
   { id: 4, user_id: 2, course_id: 102, enrolled_at: new Date('2025-08-01') }, // Pedro (Profesor) está en el curso
   { id: 5, user_id: 3, course_id: 102, enrolled_at: new Date('2025-08-05') } // Laura está en el curso
-];
-
-// --- 6. Asignación de Roles (RoleAssignment) ---
-// El cerebro de los permisos. Aquí se define QUIÉN es QUÉ y DÓNDE.
-export const roleAssignments = [
-  // Ana es administradora a nivel de todo el sistema
-  {
-    id: 1,
-    user_id: 1,
-    role_id: 1,
-    context_level: 'system',
-    context_instance_id: 1
-  },
-
-  // Pedro es profesor en ambos cursos
-  {
-    id: 2,
-    user_id: 2,
-    role_id: 2,
-    context_level: 'course',
-    context_instance_id: 101
-  }, // Profesor en Álgebra
-  {
-    id: 3,
-    user_id: 2,
-    role_id: 2,
-    context_level: 'course',
-    context_instance_id: 102
-  }, // Profesor en Historia
-
-  // Laura es estudiante en ambos cursos
-  {
-    id: 4,
-    user_id: 3,
-    role_id: 3,
-    context_level: 'course',
-    context_instance_id: 101
-  }, // Estudiante en Álgebra
-  {
-    id: 5,
-    user_id: 3,
-    role_id: 3,
-    context_level: 'course',
-    context_instance_id: 102
-  }, // Estudiante en Historia
-
-  // Carlos es estudiante solo en Álgebra
-  {
-    id: 6,
-    user_id: 4,
-    role_id: 3,
-    context_level: 'course',
-    context_instance_id: 101
-  } // Estudiante en Álgebra
 ];
 
 // --- 7. Sesiones de Asistencia ---

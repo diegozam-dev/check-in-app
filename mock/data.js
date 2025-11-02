@@ -19,7 +19,7 @@ export const roles = [
 ];
 
 // --- 2. Usuarios ---
-// Lista de usuarios en el sistema. Las contraseñas deben ser hashes en una app real.
+// Lista de usuarios en el sistema.
 export const users = [
   {
     id: 1,

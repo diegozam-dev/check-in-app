@@ -1,8 +1,135 @@
 import { AppSidebar } from '../../components/my/sidebar/app-sidebar';
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar';
 import SiteHeader from '../../components/my/site-header';
-import { users, courses } from '@/mock/data';
+import { users, courses, attendances, enrollments } from '@/mock/data';
 import MetricCard from '@/components/my/cards/metric-card';
+import { columns } from './components/admin/attendance/columns';
+import DataTable from './components/admin/attendance/data-table';
+
+const currentAttendances = attendances.map(attendance => {
+  const date = attendance.attendance_date.toLocaleDateString();
+  const course = courses.find(course => course.id === attendance.course_id);
+  let totalStudents = 0;
+  enrollments.forEach(enrolment => {
+    if (enrolment.course_id === course?.id) totalStudents += 1;
+  });
+
+  return {
+    date,
+    courseName: course?.name,
+    totalStudents: totalStudents
+  };
+});
+
+const newAttendance = [
+  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  {
+    date: '9/11/2025',
+    courseName: 'Historia Universal I',
+    totalStudents: 2
+  },
+  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  {
+    date: '9/11/2025',
+    courseName: 'Historia Universal I',
+    totalStudents: 2
+  },
+  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  {
+    date: '9/11/2025',
+    courseName: 'Historia Universal I',
+    totalStudents: 2
+  },
+  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  {
+    date: '9/11/2025',
+    courseName: 'Historia Universal I',
+    totalStudents: 2
+  },
+  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  {
+    date: '9/11/2025',
+    courseName: 'Historia Universal I',
+    totalStudents: 2
+  },
+  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  {
+    date: '9/11/2025',
+    courseName: 'Historia Universal I',
+    totalStudents: 2
+  },
+  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  {
+    date: '9/11/2025',
+    courseName: 'Historia Universal I',
+    totalStudents: 2
+  },
+  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  {
+    date: '9/11/2025',
+    courseName: 'Historia Universal I',
+    totalStudents: 2
+  },
+  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  {
+    date: '9/11/2025',
+    courseName: 'Historia Universal I',
+    totalStudents: 2
+  },
+  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  {
+    date: '9/11/2025',
+    courseName: 'Historia Universal I',
+    totalStudents: 2
+  },
+  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  {
+    date: '9/11/2025',
+    courseName: 'Historia Universal I',
+    totalStudents: 2
+  },
+  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  {
+    date: '9/11/2025',
+    courseName: 'Historia Universal I',
+    totalStudents: 2
+  },
+  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  {
+    date: '9/11/2025',
+    courseName: 'Historia Universal I',
+    totalStudents: 2
+  },
+  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  {
+    date: '9/11/2025',
+    courseName: 'Historia Universal I',
+    totalStudents: 2
+  },
+  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  {
+    date: '9/11/2025',
+    courseName: 'Historia Universal I',
+    totalStudents: 2
+  }
+];
+
+console.log(currentAttendances);
 
 const metrics = [
   {
@@ -39,6 +166,9 @@ const Home = async ({ params }: { params: Promise<{ username: string }> }) => {
                 total={metric.total}
               />
             ))}
+          </div>
+          <div>
+            <DataTable columns={columns} data={newAttendance} />
           </div>
         </main>
       </SidebarInset>

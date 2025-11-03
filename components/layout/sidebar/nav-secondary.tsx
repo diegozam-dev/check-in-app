@@ -28,7 +28,10 @@ export function NavSecondary({
           {items.map(item => (
             <SidebarMenuItem key={item.title}>
               <SidebarMenuButton asChild>
-                <Button>
+                <Button
+                  onClick={() => alert('Hola mundo')}
+                  className="cursor-pointer"
+                >
                   <item.icon />
                   <span>{item.title}</span>
                 </Button>

@@ -9,9 +9,11 @@ import {
   SidebarMenuButton,
   SidebarMenuItem
 } from '@/components/ui/sidebar';
+import Link from 'next/link';
 
 export function NavMain({
-  items
+  items,
+  username
 }: {
   items: {
     title: string;
@@ -19,6 +21,7 @@ export function NavMain({
     icon?: Icon;
     owner: string;
   }[];
+  username: string;
 }) {
   return (
     <SidebarGroup>
@@ -26,9 +29,11 @@ export function NavMain({
         <SidebarMenu>
           {items.map(item => (
             <SidebarMenuItem key={item.title}>
-              <SidebarMenuButton tooltip={item.title}>
-                {item.icon && <item.icon />}
-                <span>{item.title}</span>
+              <SidebarMenuButton tooltip={item.title} asChild>
+                <Link href={`/${username}/${item.url}`}>
+                  {item.icon && <item.icon />}
+                  <span>{item.title}</span>
+                </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>
           ))}

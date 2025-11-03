@@ -10,6 +10,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem
 } from '@/components/ui/sidebar';
+import { Button } from '@/components/ui/button';
 
 export function NavSecondary({
   items,
@@ -17,21 +18,20 @@ export function NavSecondary({
 }: {
   items: {
     title: string;
-    url: string;
     icon: Icon;
   }[];
 } & React.ComponentPropsWithoutRef<typeof SidebarGroup>) {
   return (
-    <SidebarGroup {...props}>
+    <SidebarGroup {...props} className="mt-auto">
       <SidebarGroupContent>
         <SidebarMenu>
           {items.map(item => (
             <SidebarMenuItem key={item.title}>
               <SidebarMenuButton asChild>
-                <a href={item.url}>
+                <Button>
                   <item.icon />
                   <span>{item.title}</span>
-                </a>
+                </Button>
               </SidebarMenuButton>
             </SidebarMenuItem>
           ))}

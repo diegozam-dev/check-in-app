@@ -6,8 +6,8 @@ import { ColumnDef } from '@tanstack/react-table';
 // You can use a Zod schema here if you want.
 export type Attendance = {
   date: string;
-  courseName: string | undefined;
-  totalStudents: number;
+  course: string | undefined;
+  students: number;
 };
 
 export const tableColumns: ColumnDef<Attendance>[] = [
@@ -16,11 +16,11 @@ export const tableColumns: ColumnDef<Attendance>[] = [
     header: 'Fecha'
   },
   {
-    accessorKey: 'courseName',
+    accessorKey: 'course',
     header: 'Curso'
   },
   {
-    accessorKey: 'totalStudents',
+    accessorKey: 'students',
     header: 'Total de estudiantes'
   }
 ];

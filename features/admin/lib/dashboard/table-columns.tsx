@@ -10,7 +10,7 @@ export type Attendance = {
   totalStudents: number;
 };
 
-export const columns: ColumnDef<Attendance>[] = [
+export const tableColumns: ColumnDef<Attendance>[] = [
   {
     accessorKey: 'date',
     header: 'Fecha'

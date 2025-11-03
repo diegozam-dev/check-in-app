@@ -3,7 +3,7 @@ import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar';
 import SiteHeader from '../../components/layout/header/site-header';
 import { users, courses, attendances, enrollments } from '@/mock/data';
 import MetricCard from '@/components/layout/cards/metric-card';
-import { columns } from '../../features/admin/lib/dashboard/columns';
+import { tableColumns } from '../../features/admin/lib/dashboard/table-columns';
 import DataTable from '../../components/layout/table/data-table';
 
 const currentAttendances = attendances.map(attendance => {
@@ -168,7 +168,7 @@ const Home = async ({ params }: { params: Promise<{ username: string }> }) => {
             ))}
           </div>
           <div>
-            <DataTable columns={columns} data={newAttendance} />
+            <DataTable columns={tableColumns} data={newAttendance} />
           </div>
         </main>
       </SidebarInset>

@@ -1,10 +1,10 @@
-import { AppSidebar } from '../../components/my/sidebar/app-sidebar';
+import { AppSidebar } from '../../components/layout/sidebar/app-sidebar';
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar';
-import SiteHeader from '../../components/my/site-header';
+import SiteHeader from '../../components/layout/header/site-header';
 import { users, courses, attendances, enrollments } from '@/mock/data';
-import MetricCard from '@/components/my/cards/metric-card';
-import { columns } from './components/admin/attendance/columns';
-import DataTable from './components/admin/attendance/data-table';
+import MetricCard from '@/components/layout/cards/metric-card';
+import { columns } from '../../features/admin/lib/dashboard/columns';
+import DataTable from '../../components/layout/table/data-table';
 
 const currentAttendances = attendances.map(attendance => {
   const date = attendance.attendance_date.toLocaleDateString();

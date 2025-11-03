@@ -17,6 +17,7 @@ export function NavMain({
     title: string;
     url: string;
     icon?: Icon;
+    owner: string;
   }[];
 }) {
   return (

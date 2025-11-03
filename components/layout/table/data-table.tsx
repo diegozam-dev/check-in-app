@@ -35,7 +35,7 @@ const DataTable = <TData, TValue>({
   });
 
   return (
-    <div>
+    <div className="pt-6">
       <div className="overflow-hidden rounded-md border">
         <Table>
           <TableHeader>

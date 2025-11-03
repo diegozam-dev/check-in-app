@@ -17,13 +17,11 @@ import { NavMain } from './nav-main';
 import {
   Sidebar,
   SidebarContent,
-  SidebarGroupContent,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem
 } from '@/components/ui/sidebar';
-import { Button } from '@/components/ui/button';
 import { NavSecondary } from './nav-secondary';
 
 type SidebarMainData = {
@@ -41,26 +39,26 @@ type SidebarSecondaryData = {
 const navMain: SidebarMainData = [
   {
     title: 'Inicio',
-    url: '#',
+    url: '/',
     icon: IconHome2,
     owner: 'all'
   },
   {
     title: 'Usuarios',
-    url: '#',
+    url: '/users',
     icon: IconUser,
     owner: 'admin'
   },
 
   {
     title: 'Cursos',
-    url: '#',
+    url: '/courses',
     icon: IconListDetails,
     owner: 'teacher'
   },
   {
     title: 'Categorías',
-    url: '#',
+    url: '/categories',
     icon: IconCategory,
     owner: 'admin'
   },
@@ -102,7 +100,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={navMain} />
+        <NavMain items={navMain} username="admin" />
         <NavSecondary items={navSecondary} />
       </SidebarContent>
     </Sidebar>

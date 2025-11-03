@@ -157,8 +157,8 @@ const Home = async ({ params }: { params: Promise<{ username: string }> }) => {
       <AppSidebar variant="inset" />
       <SidebarInset>
         <SiteHeader usename={username} />
-        <main className="p-6">
-          <div className="*:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card dark:*:data-[slot=card]:bg-card grid grid-cols-1 gap-4 px-4 *:data-[slot=card]:bg-linear-to-t *:data-[slot=card]:shadow-xs lg:px-6 sm:grid-cols-2">
+        <main className="py-6 px-4 lg:px-6">
+          <div className="*:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card dark:*:data-[slot=card]:bg-card grid grid-cols-1 gap-4 *:data-[slot=card]:bg-linear-to-t *:data-[slot=card]:shadow-xs sm:grid-cols-2">
             {metrics.map((metric, index) => (
               <MetricCard
                 key={index}

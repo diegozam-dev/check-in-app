@@ -24,6 +24,7 @@ import {
   SidebarMenuItem
 } from '@/components/ui/sidebar';
 import { Button } from '@/components/ui/button';
+import { NavSecondary } from './nav-secondary';
 
 type SidebarMainData = {
   title: string;
@@ -102,20 +103,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={navMain} />
-        <SidebarGroupContent className="mt-auto">
-          <SidebarMenu>
-            {navSecondary.map(item => (
-              <SidebarMenuItem key={item.title}>
-                <SidebarMenuButton asChild>
-                  <Button>
-                    <item.icon />
-                    <span>{item.title}</span>
-                  </Button>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            ))}
-          </SidebarMenu>
-        </SidebarGroupContent>
+        <NavSecondary items={navSecondary} />
       </SidebarContent>
     </Sidebar>
   );

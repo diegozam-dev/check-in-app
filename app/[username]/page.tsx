@@ -7,11 +7,11 @@ const Home = async ({ params }: { params: Promise<{ username: string }> }) => {
   const rol = roles.find(rol => rol.id === user?.rol);
 
   return (
-    <div className="py-6 px-4 lg:px-6">
+    <>
       {rol?.name === 'Administrador' && <AdminDashboard />}
       {/* {rol?.name === 'Docente' && <AdminDashboard />} */}
       {/* {rol?.name === 'Estudiante' && <AdminDashboard />} */}
-    </div>
+    </>
   );
 };
 

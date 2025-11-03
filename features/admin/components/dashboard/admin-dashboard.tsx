@@ -1,4 +1,4 @@
-import { users, courses, attendances, enrollments } from '@/mock/data';
+import { users, courses } from '@/mock/data';
 import { tableColumns } from '../../../../features/admin/lib/dashboard/table-columns';
 
 import MetricCard from '@/components/layout/cards/metric-card';
@@ -6,110 +6,110 @@ import DataTable from '@/components/layout/table/data-table';
 import { H2 } from '@/components/layout/typography/headings';
 
 const newAttendance = [
-  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  { date: '9/10/2025', course: 'Álgebra Lineal', students: 3 },
+  { date: '9/12/2025', course: 'Álgebra Lineal', students: 3 },
   {
     date: '9/11/2025',
-    courseName: 'Historia Universal I',
-    totalStudents: 2
+    course: 'Historia Universal I',
+    students: 2
   },
-  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  { date: '9/10/2025', course: 'Álgebra Lineal', students: 3 },
+  { date: '9/12/2025', course: 'Álgebra Lineal', students: 3 },
   {
     date: '9/11/2025',
-    courseName: 'Historia Universal I',
-    totalStudents: 2
+    course: 'Historia Universal I',
+    students: 2
   },
-  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  { date: '9/10/2025', course: 'Álgebra Lineal', students: 3 },
+  { date: '9/12/2025', course: 'Álgebra Lineal', students: 3 },
   {
     date: '9/11/2025',
-    courseName: 'Historia Universal I',
-    totalStudents: 2
+    course: 'Historia Universal I',
+    students: 2
   },
-  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  { date: '9/10/2025', course: 'Álgebra Lineal', students: 3 },
+  { date: '9/12/2025', course: 'Álgebra Lineal', students: 3 },
   {
     date: '9/11/2025',
-    courseName: 'Historia Universal I',
-    totalStudents: 2
+    course: 'Historia Universal I',
+    students: 2
   },
-  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  { date: '9/10/2025', course: 'Álgebra Lineal', students: 3 },
+  { date: '9/12/2025', course: 'Álgebra Lineal', students: 3 },
   {
     date: '9/11/2025',
-    courseName: 'Historia Universal I',
-    totalStudents: 2
+    course: 'Historia Universal I',
+    students: 2
   },
-  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  { date: '9/10/2025', course: 'Álgebra Lineal', students: 3 },
+  { date: '9/12/2025', course: 'Álgebra Lineal', students: 3 },
   {
     date: '9/11/2025',
-    courseName: 'Historia Universal I',
-    totalStudents: 2
+    course: 'Historia Universal I',
+    students: 2
   },
-  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  { date: '9/10/2025', course: 'Álgebra Lineal', students: 3 },
+  { date: '9/12/2025', course: 'Álgebra Lineal', students: 3 },
   {
     date: '9/11/2025',
-    courseName: 'Historia Universal I',
-    totalStudents: 2
+    course: 'Historia Universal I',
+    students: 2
   },
-  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  { date: '9/10/2025', course: 'Álgebra Lineal', students: 3 },
+  { date: '9/12/2025', course: 'Álgebra Lineal', students: 3 },
   {
     date: '9/11/2025',
-    courseName: 'Historia Universal I',
-    totalStudents: 2
+    course: 'Historia Universal I',
+    students: 2
   },
-  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  { date: '9/10/2025', course: 'Álgebra Lineal', students: 3 },
+  { date: '9/12/2025', course: 'Álgebra Lineal', students: 3 },
   {
     date: '9/11/2025',
-    courseName: 'Historia Universal I',
-    totalStudents: 2
+    course: 'Historia Universal I',
+    students: 2
   },
-  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  { date: '9/10/2025', course: 'Álgebra Lineal', students: 3 },
+  { date: '9/12/2025', course: 'Álgebra Lineal', students: 3 },
   {
     date: '9/11/2025',
-    courseName: 'Historia Universal I',
-    totalStudents: 2
+    course: 'Historia Universal I',
+    students: 2
   },
-  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  { date: '9/10/2025', course: 'Álgebra Lineal', students: 3 },
+  { date: '9/12/2025', course: 'Álgebra Lineal', students: 3 },
   {
     date: '9/11/2025',
-    courseName: 'Historia Universal I',
-    totalStudents: 2
+    course: 'Historia Universal I',
+    students: 2
   },
-  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  { date: '9/10/2025', course: 'Álgebra Lineal', students: 3 },
+  { date: '9/12/2025', course: 'Álgebra Lineal', students: 3 },
   {
     date: '9/11/2025',
-    courseName: 'Historia Universal I',
-    totalStudents: 2
+    course: 'Historia Universal I',
+    students: 2
   },
-  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  { date: '9/10/2025', course: 'Álgebra Lineal', students: 3 },
+  { date: '9/12/2025', course: 'Álgebra Lineal', students: 3 },
   {
     date: '9/11/2025',
-    courseName: 'Historia Universal I',
-    totalStudents: 2
+    course: 'Historia Universal I',
+    students: 2
   },
-  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  { date: '9/10/2025', course: 'Álgebra Lineal', students: 3 },
+  { date: '9/12/2025', course: 'Álgebra Lineal', students: 3 },
   {
     date: '9/11/2025',
-    courseName: 'Historia Universal I',
-    totalStudents: 2
+    course: 'Historia Universal I',
+    students: 2
   },
-  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
+  { date: '9/10/2025', course: 'Álgebra Lineal', students: 3 },
+  { date: '9/12/2025', course: 'Álgebra Lineal', students: 3 },
   {
     date: '9/11/2025',
-    courseName: 'Historia Universal I',
-    totalStudents: 2
+    course: 'Historia Universal I',
+    students: 2
   }
 ];
 

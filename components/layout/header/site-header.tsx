@@ -1,6 +1,6 @@
 import { Separator } from '@/components/ui/separator';
 import { SidebarTrigger } from '@/components/ui/sidebar';
-import UserButton from './user-button';
+import UserButton from '@/features/user/components/user-button';
 import { users } from '@/mock/data';
 import { UserSchema } from '@/lib/types';
 

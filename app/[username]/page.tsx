@@ -1,157 +1,16 @@
-import { users, courses, attendances, enrollments } from '@/mock/data';
-import MetricCard from '@/components/layout/cards/metric-card';
-import { tableColumns } from '../../features/admin/lib/dashboard/table-columns';
-import DataTable from '../../components/layout/table/data-table';
+import AdminDashboard from '@/features/admin/components/dashboard/admin-dashboard';
+import { users, roles } from '@/mock/data';
 
-const currentAttendances = attendances.map(attendance => {
-  const date = attendance.attendance_date.toLocaleDateString();
-  const course = courses.find(course => course.id === attendance.course_id);
-  let totalStudents = 0;
-  enrollments.forEach(enrolment => {
-    if (enrolment.course_id === course?.id) totalStudents += 1;
-  });
+const Home = async ({ params }: { params: Promise<{ username: string }> }) => {
+  const { username } = await params;
+  const user = users.find(user => user.username === username);
+  const rol = roles.find(rol => rol.id === user?.rol);
 
-  return {
-    date,
-    courseName: course?.name,
-    totalStudents: totalStudents
-  };
-});
-
-const newAttendance = [
-  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  {
-    date: '9/11/2025',
-    courseName: 'Historia Universal I',
-    totalStudents: 2
-  },
-  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  {
-    date: '9/11/2025',
-    courseName: 'Historia Universal I',
-    totalStudents: 2
-  },
-  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  {
-    date: '9/11/2025',
-    courseName: 'Historia Universal I',
-    totalStudents: 2
-  },
-  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  {
-    date: '9/11/2025',
-    courseName: 'Historia Universal I',
-    totalStudents: 2
-  },
-  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  {
-    date: '9/11/2025',
-    courseName: 'Historia Universal I',
-    totalStudents: 2
-  },
-  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  {
-    date: '9/11/2025',
-    courseName: 'Historia Universal I',
-    totalStudents: 2
-  },
-  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  {
-    date: '9/11/2025',
-    courseName: 'Historia Universal I',
-    totalStudents: 2
-  },
-  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  {
-    date: '9/11/2025',
-    courseName: 'Historia Universal I',
-    totalStudents: 2
-  },
-  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  {
-    date: '9/11/2025',
-    courseName: 'Historia Universal I',
-    totalStudents: 2
-  },
-  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  {
-    date: '9/11/2025',
-    courseName: 'Historia Universal I',
-    totalStudents: 2
-  },
-  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  {
-    date: '9/11/2025',
-    courseName: 'Historia Universal I',
-    totalStudents: 2
-  },
-  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  {
-    date: '9/11/2025',
-    courseName: 'Historia Universal I',
-    totalStudents: 2
-  },
-  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  {
-    date: '9/11/2025',
-    courseName: 'Historia Universal I',
-    totalStudents: 2
-  },
-  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  {
-    date: '9/11/2025',
-    courseName: 'Historia Universal I',
-    totalStudents: 2
-  },
-  { date: '9/10/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  { date: '9/12/2025', courseName: 'Álgebra Lineal', totalStudents: 3 },
-  {
-    date: '9/11/2025',
-    courseName: 'Historia Universal I',
-    totalStudents: 2
-  }
-];
-
-const metrics = [
-  {
-    description: 'Usuarios',
-    total: users.length
-  },
-  {
-    description: 'Cursos',
-    total: courses.length
-  }
-];
-
-const Home = () => {
   return (
     <div className="py-6 px-4 lg:px-6">
-      <div className="*:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card dark:*:data-[slot=card]:bg-card grid grid-cols-1 gap-4 *:data-[slot=card]:bg-linear-to-t *:data-[slot=card]:shadow-xs sm:grid-cols-2">
-        {metrics.map((metric, index) => (
-          <MetricCard
-            key={index}
-            desciption={metric.description as string}
-            total={metric.total}
-          />
-        ))}
-      </div>
-      <div>
-        <DataTable columns={tableColumns} data={newAttendance} />
-      </div>
+      {rol?.name === 'Administrador' && <AdminDashboard />}
+      {/* {rol?.name === 'Docente' && <AdminDashboard />} */}
+      {/* {rol?.name === 'Estudiante' && <AdminDashboard />} */}
     </div>
   );
 };

@@ -6,16 +6,12 @@ import {
   FieldLabel
 } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
-import { GalleryVerticalEnd } from 'lucide-react';
 import Link from 'next/link';
 
 const LoginPage = () => {
   return (
     <>
-      <div className="flex w-full h-[72px] items-center justify-center border-b border-b-gray-200 absolute top-0">
-        <GalleryVerticalEnd className="size-6" />
-      </div>
-      <div className="bg-background flex min-h-svh items-center justify-center p-6 md:p-10">
+      <main className="bg-background flex min-h-svh items-center justify-center p-6 md:p-10">
         <div className="w-full max-w-sm">
           <div className="flex flex-col gap-6">
             <form>
@@ -56,7 +52,7 @@ const LoginPage = () => {
             </FieldDescription>
           </div>
         </div>
-      </div>
+      </main>
     </>
   );
 };

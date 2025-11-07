@@ -8,3 +8,13 @@ export type UserSchema = {
   password: string;
   state: string;
 };
+
+export type LoginFormState =
+  | {
+      errors?: {
+        username?: string[];
+        password?: string[];
+      };
+      message?: string;
+    }
+  | undefined;

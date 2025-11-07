@@ -28,7 +28,7 @@ export const users = [
     lastname: 'Admin',
     username: 'admin',
     email: 'ana.admin@example.com',
-    password: 'admin123',
+    password: 'Admin123.',
     state: 'active'
   },
   {

@@ -3,8 +3,9 @@
 import { LoginFormSchema } from '@/lib/definitions';
 import { LoginFormState } from '@/lib/types';
 import * as z from 'zod';
-import { users } from '@/mock/data';
+import { roles, users } from '@/mock/data';
 import { redirect } from 'next/navigation';
+import { createSession, encrypt } from '@/lib/session';
 
 export const login = async (state: LoginFormState, formData: FormData) => {
   const validatedFields = LoginFormSchema.safeParse({
@@ -27,7 +28,11 @@ export const login = async (state: LoginFormState, formData: FormData) => {
     validatedFields.data.password
   );
 
+  const role = roles.find(role => role.id === user?.rol);
+
   if (user) {
+    await createSession(user.id.toString(), role?.name as string);
+
     redirect(`/${user.username}`);
   } else {
     return {

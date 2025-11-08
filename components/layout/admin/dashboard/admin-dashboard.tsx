@@ -1,5 +1,5 @@
 import { users, courses } from '@/mock/data';
-import { tableColumns } from '../lib/dashboard/table-columns';
+import { tableColumns } from '../lib/table-columns';
 
 import MetricCard from '@/components/layout/cards/metric-card';
 import DataTable from '@/components/layout/table/data-table';

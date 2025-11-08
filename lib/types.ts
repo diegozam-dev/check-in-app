@@ -18,3 +18,9 @@ export type LoginFormState =
       message?: string;
     }
   | undefined;
+
+export type SessionPayload = {
+  userId: string;
+  role: string;
+  expiresAt: Date;
+};

@@ -1,3 +1,4 @@
+'use server';
 import SiteHeader from '@/components/layout/header/site-header';
 import { AppSidebar } from '@/components/layout/sidebar/app-sidebar';
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar';

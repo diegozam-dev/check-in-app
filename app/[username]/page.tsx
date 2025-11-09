@@ -1,3 +1,4 @@
+'use server';
 import AdminDashboard from '@/components/layout/admin/dashboard/admin-dashboard';
 import { users, roles } from '@/mock/data';
 

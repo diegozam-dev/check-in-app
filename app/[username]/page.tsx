@@ -1,17 +1,15 @@
 'use server';
+import { verifyAuth } from '@/actions/auth';
 import AdminDashboard from '@/components/layout/admin/dashboard/admin-dashboard';
-import { users, roles } from '@/mock/data';
 
-const Home = async ({ params }: { params: Promise<{ username: string }> }) => {
-  const { username } = await params;
-  const user = users.find(user => user.username === username);
-  const rol = roles.find(rol => rol.id === user?.rol);
+const Home = async () => {
+  const user = await verifyAuth();
 
   return (
     <>
-      {rol?.name === 'Administrador' && <AdminDashboard />}
-      {/* {rol?.name === 'Docente' && <AdminDashboard />} */}
-      {/* {rol?.name === 'Estudiante' && <AdminDashboard />} */}
+      {user?.rol === 'Administrador' && <AdminDashboard />}
+      {user?.rol === 'Docente' && <h1>Hola Docentes</h1>}
+      {user?.rol === 'Estudiante' && <h1>Hola Estudiantes</h1>}
     </>
   );
 };

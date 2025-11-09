@@ -19,6 +19,7 @@ import {
 import { SidebarMenuButton } from '@/components/ui/sidebar';
 import { UserSchema } from '@/lib/types';
 import { roles } from '@/mock/data';
+import { logout } from '@/actions/auth';
 
 const UserButton = ({ user }: { user: UserSchema }) => {
   return (
@@ -59,17 +60,23 @@ const UserButton = ({ user }: { user: UserSchema }) => {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem>
+          <DropdownMenuItem
+            className="cursor-pointer"
+            onClick={() => alert('Clicckkkkk')}
+          >
             <IconUserCircle />
             Perfil
           </DropdownMenuItem>
-          <DropdownMenuItem>
+          <DropdownMenuItem
+            className="cursor-pointer"
+            onClick={() => alert('Clicckkkkk')}
+          >
             <IconSettings />
             Configuración
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
+        <DropdownMenuItem className="cursor-pointer" onClick={logout}>
           <IconLogout />
           Cerrar sesión
         </DropdownMenuItem>

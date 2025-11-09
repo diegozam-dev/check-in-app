@@ -39,3 +39,17 @@ export const createSession = async (userId: string, role: string) => {
     path: '/'
   });
 };
+
+export const getSession = async () => {
+  const session = (await cookies()).get('session')?.value;
+  const payload = await decrypt(session);
+
+  if (!session || !payload) return null;
+
+  return payload;
+};
+
+export const deleteSession = async () => {
+  const cookieStore = await cookies();
+  cookieStore.delete('session');
+};

@@ -5,7 +5,7 @@ import { LoginFormState } from '@/lib/types';
 import * as z from 'zod';
 import { roles, users } from '@/mock/data';
 import { redirect } from 'next/navigation';
-import { createSession, encrypt } from '@/lib/session';
+import { createSession, deleteSession, getSession } from '@/lib/session';
 
 export const login = async (state: LoginFormState, formData: FormData) => {
   const validatedFields = LoginFormSchema.safeParse({
@@ -48,4 +48,19 @@ const loginUser = (username: string, password: string) => {
   );
 
   return user;
+};
+
+export const verifyAuth = async () => {
+  const payload = await getSession();
+
+  const user = users.find(
+    user => user.id === parseInt(payload?.userId as string)
+  );
+
+  return user || null;
+};
+
+export const logout = async () => {
+  await deleteSession();
+  redirect('/auth/login');
 };

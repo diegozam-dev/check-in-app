@@ -6,6 +6,7 @@ import * as z from 'zod';
 import { roles, users } from '@/mock/data';
 import { redirect } from 'next/navigation';
 import { createSession, deleteSession, getSession } from '@/lib/session';
+import { getUserById } from './user';
 
 export const login = async (state: LoginFormState, formData: FormData) => {
   const validatedFields = LoginFormSchema.safeParse({
@@ -28,12 +29,12 @@ export const login = async (state: LoginFormState, formData: FormData) => {
     validatedFields.data.password
   );
 
-  const role = roles.find(role => role.id === user?.rol);
+  const loggedUser = await getUserById(user?.id as number);
 
-  if (user) {
-    await createSession(user.id.toString(), role?.name as string);
+  if (loggedUser) {
+    await createSession(loggedUser?.id.toString(), loggedUser?.rol);
 
-    redirect(`/${user.username}`);
+    redirect(`/${loggedUser.username}`);
   } else {
     return {
       message: 'Usuario o contraseña incorrectos.'
@@ -53,9 +54,7 @@ const loginUser = (username: string, password: string) => {
 export const verifyAuth = async () => {
   const payload = await getSession();
 
-  const user = users.find(
-    user => user.id === parseInt(payload?.userId as string)
-  );
+  const user = await getUserById(parseInt(payload?.userId as string));
 
   return user || null;
 };

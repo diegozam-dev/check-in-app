@@ -1,16 +1,9 @@
-'use client';
-import { users } from '@/mock/data';
-import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+'use server';
 
-const user = users[0];
+import { redirect } from 'next/navigation';
 
 const Home = () => {
-  const router = useRouter();
-
-  useEffect(() => {
-    router.push(`/${user.username}`);
-  });
+  redirect('/auth/login');
 };
 
 export default Home;

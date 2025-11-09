@@ -36,9 +36,9 @@ export const users = [
     rol: 2,
     firstname: 'Pedro',
     lastname: 'Profesor',
-    username: 'pprofesor',
+    username: 'profesor',
     email: 'pedro.profesor@example.com',
-    password: 'profesor123',
+    password: 'Profesor123.',
     state: 'active'
   },
   {
@@ -56,9 +56,9 @@ export const users = [
     rol: 3,
     firstname: 'Carlos',
     lastname: 'Alumno',
-    username: 'calumno',
+    username: 'carlos',
     email: 'carlos.alumno@example.com',
-    password: 'estudiante456',
+    password: 'Carlos123.',
     state: 'active'
   }
 ];

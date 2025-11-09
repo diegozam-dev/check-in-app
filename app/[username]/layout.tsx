@@ -1,7 +1,9 @@
 'use server';
+import { verifyAuth } from '@/actions/auth';
 import SiteHeader from '@/components/layout/header/site-header';
 import { AppSidebar } from '@/components/layout/sidebar/app-sidebar';
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar';
+import { redirect } from 'next/navigation';
 
 const AppLayout = async ({
   children,
@@ -11,6 +13,14 @@ const AppLayout = async ({
   params: Promise<{ username: string }>;
 }) => {
   const { username } = await params;
+
+  const user = await verifyAuth();
+
+  if (user) {
+    redirect(`/${user.username}`);
+  } else {
+    redirect('/auth/login');
+  }
 
   return (
     <SidebarProvider

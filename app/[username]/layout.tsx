@@ -16,9 +16,7 @@ const AppLayout = async ({
 
   const user = await verifyAuth();
 
-  if (user) {
-    redirect(`/${user.username}`);
-  } else {
+  if (!user || user.username !== username) {
     redirect('/auth/login');
   }
 

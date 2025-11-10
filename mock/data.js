@@ -22,7 +22,7 @@ export const roles = [
 // Lista de usuarios en el sistema.
 export const users = [
   {
-    id: 1,
+    id: '1',
     rol: 1,
     firstname: 'Ana',
     lastname: 'Admin',
@@ -32,7 +32,7 @@ export const users = [
     state: 'active'
   },
   {
-    id: 2,
+    id: '2',
     rol: 2,
     firstname: 'Pedro',
     lastname: 'Profesor',
@@ -42,7 +42,7 @@ export const users = [
     state: 'active'
   },
   {
-    id: 3,
+    id: '3',
     rol: 3,
     firstname: 'Laura',
     lastname: 'Estudiante',
@@ -52,7 +52,7 @@ export const users = [
     state: 'active'
   },
   {
-    id: 4,
+    id: '4',
     rol: 3,
     firstname: 'Carlos',
     lastname: 'Alumno',

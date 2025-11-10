@@ -3,10 +3,9 @@
 import { LoginFormSchema } from '@/lib/definitions';
 import { LoginFormState } from '@/lib/types';
 import * as z from 'zod';
-import { users } from '@/mock/data';
 import { redirect } from 'next/navigation';
 import { createSession, deleteSession, getSession } from '@/lib/session';
-import { getUserById } from './user';
+import { getUserById, validateCredentialsToLogin } from './user';
 
 export const login = async (state: LoginFormState, formData: FormData) => {
   const validatedFields = LoginFormSchema.safeParse({
@@ -24,17 +23,15 @@ export const login = async (state: LoginFormState, formData: FormData) => {
     };
   }
 
-  const user = loginUser(
+  const user = await validateCredentialsToLogin(
     validatedFields.data.username,
     validatedFields.data.password
   );
 
-  const loggedUser = await getUserById(user?.id as number);
+  if (user) {
+    await createSession(user?.id.toString(), user?.rol as string);
 
-  if (loggedUser) {
-    await createSession(loggedUser?.id.toString(), loggedUser?.rol);
-
-    redirect(`/${loggedUser.username}`);
+    redirect(`/${user.username}`);
   } else {
     return {
       message: 'Usuario o contraseña incorrectos.'
@@ -42,19 +39,10 @@ export const login = async (state: LoginFormState, formData: FormData) => {
   }
 };
 
-// Helper
-const loginUser = (username: string, password: string) => {
-  const user = users.find(
-    user => user.username === username && user.password === password
-  );
-
-  return user;
-};
-
 export const verifyAuth = async () => {
   const payload = await getSession();
 
-  const user = await getUserById(parseInt(payload?.userId as string));
+  const user = await getUserById(payload?.userId as string);
 
   return user || null;
 };

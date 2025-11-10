@@ -31,7 +31,7 @@ const AppLayout = async ({
     >
       <AppSidebar variant="inset" />
       <SidebarInset>
-        <SiteHeader usename={username} />
+        <SiteHeader userId={user.id.toString() as string} />
         <div className="py-6 px-4 lg:px-6">{children}</div>
       </SidebarInset>
     </SidebarProvider>

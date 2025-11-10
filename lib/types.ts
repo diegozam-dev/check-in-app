@@ -1,11 +1,10 @@
 export type UserSchema = {
-  id: number;
-  rol: number;
+  id: string;
+  rol: string;
   firstname: string;
   lastname: string;
   username: string;
   email: string;
-  password: string;
   state: string;
 };
 

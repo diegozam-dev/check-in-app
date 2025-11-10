@@ -1,11 +1,13 @@
+'use server';
+
 import { Separator } from '@/components/ui/separator';
 import { SidebarTrigger } from '@/components/ui/sidebar';
 import UserButton from '@/components/layout/user/components/user-button';
-import { users } from '@/mock/data';
 import { UserSchema } from '@/lib/types';
+import { getUserById } from '@/actions/user';
 
-const SiteHeader = ({ usename }: { usename: string }) => {
-  const currentUser = users.find(user => user.username === usename);
+const SiteHeader = async ({ userId }: { userId: string }) => {
+  const currentUser = await getUserById(userId);
 
   return (
     <header className="flex h-[72px] shrink-0 items-center gap-2 border-b transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-(--header-height)">

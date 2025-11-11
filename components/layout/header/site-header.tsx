@@ -5,6 +5,7 @@ import { SidebarTrigger } from '@/components/ui/sidebar';
 import UserButton from '@/components/features/user/buttons/user-button';
 import { UserSchema } from '@/lib/types';
 import { getUserById } from '@/actions/user';
+import { H3 } from '../typography/headings';
 
 const SiteHeader = async ({ userId }: { userId: string }) => {
   const currentUser = await getUserById(userId);
@@ -17,7 +18,7 @@ const SiteHeader = async ({ userId }: { userId: string }) => {
           orientation="vertical"
           className="mx-2 data-[orientation=vertical]:h-4"
         />
-        <h1 className="text-base font-medium">Inicio</h1>
+        <H3 label="Dashboard" />
         <div className="ml-auto flex items-center gap-2">
           <UserButton user={currentUser as UserSchema} />
         </div>

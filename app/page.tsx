@@ -3,7 +3,7 @@
 import { redirect } from 'next/navigation';
 
 const Home = () => {
-  redirect('/auth/login');
+  redirect('/login');
 };
 
 export default Home;

@@ -2,7 +2,7 @@
 
 import { Separator } from '@/components/ui/separator';
 import { SidebarTrigger } from '@/components/ui/sidebar';
-import UserButton from '@/components/layout/user/components/user-button';
+import UserButton from '@/components/layout/user/buttons/user-button';
 import { UserSchema } from '@/lib/types';
 import { getUserById } from '@/actions/user';
 

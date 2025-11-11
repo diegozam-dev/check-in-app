@@ -49,5 +49,5 @@ export const verifyAuth = async () => {
 
 export const logout = async () => {
   await deleteSession();
-  redirect('/auth/login');
+  redirect('/login');
 };

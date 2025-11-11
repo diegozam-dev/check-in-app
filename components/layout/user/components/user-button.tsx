@@ -18,7 +18,6 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { SidebarMenuButton } from '@/components/ui/sidebar';
 import { UserSchema } from '@/lib/types';
-import { roles } from '@/mock/data';
 import { logout } from '@/actions/auth';
 
 const UserButton = ({ user }: { user: UserSchema }) => {
@@ -33,9 +32,7 @@ const UserButton = ({ user }: { user: UserSchema }) => {
             <span className="truncate font-medium">
               {`${user.firstname} ${user.lastname}`}
             </span>
-            <span className="truncate text-xs">{`${
-              roles.find(role => role.id === user.rol)?.name
-            }`}</span>
+            <span className="truncate text-xs">{`${user.rol}`}</span>
           </div>
           <IconDotsVertical className="ml-auto size-4" />
         </SidebarMenuButton>

@@ -1,6 +1,6 @@
 'use server';
 import { verifyAuth } from '@/actions/auth';
-import AdminDashboard from '@/components/layout/admin/dashboard/admin-dashboard';
+import AdminDashboard from '@/components/features/admin/dashboard/admin-dashboard';
 
 const Home = async () => {
   const user = await verifyAuth();

@@ -44,15 +44,15 @@ const MainBreadcrumb = ({ dynamicRoutes = {} }: BreadcrumbsProps) => {
 
           return (
             <Fragment key={href}>
+              {pathSegments.length > 1 && <BreadcrumbSeparator />}
               <BreadcrumbItem>
-                <SlashIcon className="size-4" />
-              </BreadcrumbItem>
-              <BreadcrumbItem>
-                {isLast ? (
+                {pathSegments.length === 1 ? null : isLast ? (
                   <BreadcrumbPage>{displayText}</BreadcrumbPage>
                 ) : (
                   <BreadcrumbLink asChild>
-                    <Link href={href}>{displayText}</Link>
+                    <Link href={href}>
+                      {displayText === pathSegments[0] ? 'Inicio' : displayText}
+                    </Link>
                   </BreadcrumbLink>
                 )}
               </BreadcrumbItem>

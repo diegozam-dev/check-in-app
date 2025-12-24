@@ -1,4 +1,5 @@
 import { AppSidebar } from '@/components/common/appSidebar';
+import { SiteHeader } from '@/components/common/siteHeader';
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar';
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
     >
       <AppSidebar variant="inset" />
       <SidebarInset>
+        <SiteHeader />
         <div className="flex flex-1 flex-col"></div>
       </SidebarInset>
     </SidebarProvider>

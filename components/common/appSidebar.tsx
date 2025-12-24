@@ -3,13 +3,11 @@
 import * as React from 'react';
 import {
   IconChartBar,
-  IconCirclePlusFilled,
   IconDashboard,
   IconFolder,
   IconHelp,
   IconInnerShadowTop,
   IconListDetails,
-  IconMail,
   IconSearch,
   IconSettings,
   IconUsers
@@ -26,7 +24,6 @@ import {
   SidebarGroup,
   SidebarGroupContent
 } from '@/components/ui/sidebar';
-import { Button } from '../ui/button';
 import { NavUser } from './navUser';
 
 const data = {

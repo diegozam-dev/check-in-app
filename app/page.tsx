@@ -2,15 +2,12 @@ import { AppSidebar } from '@/components/common/appSidebar';
 import { SiteHeader } from '@/components/common/siteHeader';
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar';
 
-import { Badge } from '@/components/ui/badge';
 import {
   Card,
-  CardAction,
   CardDescription,
   CardHeader,
   CardTitle
 } from '@/components/ui/card';
-import { IconTrendingDown, IconTrendingUp } from '@tabler/icons-react';
 import { TypographyH2 } from '@/components/common/typography/h2';
 import { AttendanceTableByCourse } from '@/components/feature/attendance-table-by-course/attendaceTableByCourse';
 

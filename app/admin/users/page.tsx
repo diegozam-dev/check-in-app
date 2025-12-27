@@ -1,5 +1,5 @@
 import { TypographyH2 } from '@/components/common/typography/h2';
-import { CreateUserButton } from '@/components/feature/admin/create-user-button';
+import { CreateUserButton } from '@/components/feature/admin/createUserButton';
 import { RegisteredUsersTable } from '@/components/feature/admin/registered-users-table/registeredUsersTable';
 
 const UsersPage = () => {

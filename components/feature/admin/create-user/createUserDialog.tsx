@@ -57,7 +57,7 @@ const formSchema = z.object({
     .regex(/^\d+$/, 'Solo se permiten números')
     .length(10, 'Debe tener 10 caracteres')
     .trim(),
-  rol: z.string(),
+  rol: z.string().min(1, 'Debe escojer un rol'),
   firstname: z.string().min(1, 'Falta por completar'),
   lastname: z.string().min(1, 'Falta por completar'),
   email: z.email({ error: 'Ingrese un correo válido' }),
@@ -97,6 +97,7 @@ export const CreateUserDialog = () => {
 
   const onSubmit = (values: z.infer<typeof formSchema>) => {
     console.log(values);
+    form.reset();
   };
 
   return (
@@ -145,25 +146,22 @@ export const CreateUserDialog = () => {
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
                   <FieldLabel htmlFor="rol">Rol</FieldLabel>
-                  <Select {...form.register('rol')}>
+                  <Select
+                    onValueChange={field.onChange}
+                    value={field.value || ''}
+                  >
                     <SelectTrigger className="w-45">
                       <SelectValue placeholder="Seleccione un rol" />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectGroup>
                         <SelectLabel>Roles</SelectLabel>
-                        <SelectItem value="apple">Apple</SelectItem>
-                        <SelectItem value="banana">Banana</SelectItem>
-                        <SelectItem value="blueberry">Blueberry</SelectItem>
+                        <SelectItem value="admin">Administrador</SelectItem>
+                        <SelectItem value="teacher">Profesor</SelectItem>
+                        <SelectItem value="student">Estudiante</SelectItem>
                       </SelectGroup>
                     </SelectContent>
                   </Select>
-                  <Input
-                    {...field}
-                    id="rodfsl"
-                    aria-invalid={fieldState.invalid}
-                    autoComplete="on"
-                  />
                   {fieldState.invalid && (
                     <FieldError
                       errors={[fieldState.error]}
